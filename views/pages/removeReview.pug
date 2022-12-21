@@ -1,0 +1,11 @@
+//-allows user to delete Review
+html(lang="en")
+    head
+        title = remove 
+    body
+
+        include ../partials/headers
+        form(action="/"+delReview.review+"/delete" method="post")
+            p are you sure you want to delete the following: #{delReview.art}:#{delReview.review}? 
+
+            button(type="submit") Yes

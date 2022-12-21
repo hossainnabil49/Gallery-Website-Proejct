@@ -1,0 +1,40 @@
+//-page that displays artwork
+doctype html
+html(lang="en")
+    head
+        title=art.name
+    body
+        //-displays information of artwork
+        include ../partials/headers
+        h4 Artwork: #{h1=art.name}
+        h4 Year: #{h1=art.year}
+        h4 Artist: 
+            a(href="/"+art.artist) #{h1=art.artist}
+        h4 Category: #{h1=art.category}
+        h4 Medium: #{h1=art.medium}
+        h4 Description: #{h5=art.description}
+        img(src=art.image style='width:400px; height:400px')
+        //-checks if art is checked and username doesnt = artist name, if not checked then like button appears if it is checked that unlike button appears
+        if !art.checked && session.username!=art.artist
+            form(action="/like" method="post") 
+                button(type="submit") Like!
+                
+            
+        else if art.checked && session.username!=art.artist
+            form(action="/unlike" method="post")
+                button(type="submit") Unlike! 
+        //-displays like counter
+        p #{count}     
+        //-checks if username =artist name, if not then gives option to user to add review
+        if session.username!=art.artist        
+            h4 Add Review: 
+            
+                form(action="/review" method="post")
+                    input(type="text" name="review")
+                    br
+                    button(type="submit") Post 
+        //-checks if reviews exist for artwork and then outputs them
+        if checker 
+            each review in currentReviews
+                p #{review.userName} says #{review.review} 
+        

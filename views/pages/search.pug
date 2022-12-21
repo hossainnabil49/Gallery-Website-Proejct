@@ -1,0 +1,28 @@
+//-displays the artworks in database and also lets the user to search artworks
+html
+    head
+        title Search
+    body 
+
+        include ../partials/headers.pug
+        #main
+            each art in gallery 
+                //-hrefs for each artwork that links to the artwork profile
+                a(href="/art/" + art._id) #{art.name} 
+                br
+                //-allows user to input info
+            form(action="/search" method="post")
+                br
+                br        
+                |Name of Artwork: 
+                input(type="text" name ="name" size='50')
+                
+                |Artist Name:  
+                input(type="text" name ="artist" size='50')
+                
+                |Category: 
+                input(type="text" name ="category" size='50')
+                br
+                br
+                button(type="submit") Search 
+            

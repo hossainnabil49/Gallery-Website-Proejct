@@ -1,0 +1,13 @@
+//-displays workshop enrollements and notifications from followed artists
+html
+	head
+		title Notifications
+	body 
+
+		include ../partials/headers.pug
+		h2 Here are your notifications:
+		each notification in currentNotifications 
+			p #{notification.artist} has added something new!, here it is: #{notification.added}
+		h2 Here are a list of workshops you are enrolled in: 
+		for enroll in enrollement
+			p #{enroll.workshop}

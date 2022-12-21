@@ -1,0 +1,44 @@
+//-header which serves as the hub area which allows user to naviagate to multiple pages
+div#header
+    a(href="/login") Home
+    |  
+    if session && session.loggedin
+        span 
+            
+             
+            
+             
+             a(href="/following") Artists you follow 
+             
+             a(href="/interacted") Interacted Artworks 
+             
+             a(href="/notifications") Notifications 
+             
+             a(href="/search") Search 
+             
+             a(href="/logout") Logout
+             if !session.artist
+                form(action="/upgrade" method="post")
+                    br
+                    button(type="submit") Upgrade to Artist   
+                
+             else
+                form(action="/downgrade" method="post")
+                    a(href="/addart") Add Art 
+                    a(href="/addworkshop") Add Workshop 
+                    br
+                    button(type="submit") Downgrade to patron 
+             
+             
+    else
+        span
+            a(href="/register") Register 
+        span
+            form(action="/login" method="post")
+                | Username: 
+                input(type="text" name="username" required)
+                |   Password: 
+                input(type="password" name="password" required)
+                |   
+                button(type="submit") Login
+

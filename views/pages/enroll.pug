@@ -1,0 +1,11 @@
+//-allows user to enroll in workshop
+html(lang="en")
+    head
+        title = enroll
+    body
+
+        include ../partials/headers
+        form(action="/"+enroll.workshop+"/enroll" method="post")
+            p are you sure you want to enroll in the following: #{enroll.workshop}? 
+
+            button(type="submit") Yes

@@ -1,0 +1,17 @@
+//-lets the user add a new workshop
+html(lang="en")
+    head
+        title Add Workshop 
+
+    body
+        include ../partials/headers.pug
+        //-serves as input for the user
+        h4 Workshop name: 
+        form(action="/addworkshop" method="post")
+
+            input(type="text" name="name")
+            br
+            h4 Artist:
+            input(type="text" name="artist")
+            br
+            button(type="submit") Submit  

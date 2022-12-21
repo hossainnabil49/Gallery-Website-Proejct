@@ -1,0 +1,36 @@
+//-page to add art
+html
+    head
+        title Add Artwork 
+    body 
+        include ../partials/headers.pug
+        div#error(style="color:red")
+        br
+        br 
+        //-serves as input for the user to add artwork
+        div        
+            |Name of Artwork: 
+            input(type="text" id  ="name" size='20')
+
+            |Year 
+            input(type="text" id="year" size='20')
+
+            |Artist Name:  
+            input(type="text" id ="artist" size='20')
+                    
+            |Category: 
+            input(type="text" id  ="category" size='20')
+
+            |Medium: 
+            input(type="text" id="medium" size='20')
+
+            |Description:
+            input(type="text" id="description" size='20')
+
+            |Image: 
+            input(type="text" id ="image" size='20')
+            br
+            br
+            button(type="submit" id="submit") Submit
+
+        script(src="/addArt.js")

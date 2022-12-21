@@ -1,0 +1,17 @@
+//-displays the artworks the user has reviewed/liked
+
+html
+	head
+		title Artworks interacted
+	body 
+
+		include ../partials/headers.pug
+		h3 Artworks you have reviewed
+		//-creates review with link so that they can delete review
+		each review in searchReview 
+			a(href="/"+review.review +"/delete") #{review.art}: #{review.review} 
+			br
+				
+		h3 Artworks you liked
+		each like in searchLike 
+			p #{like.artwork}

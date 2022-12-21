@@ -1,0 +1,28 @@
+//-page to display artist profile
+doctype html
+html(lang="en")
+    head
+        title=artist 
+    body
+
+        include ../partials/headers
+        h2 PROFILE: #{artist}
+        //-checks if filter is checked or not, if not then a Follow button appears, if so then a Unfollow button appears
+        if !filter.check
+            form(action="/"+artist+"/follow" method="post")
+                button(type="submit") Follow!
+        else if filter.check 
+            form(action="/"+artist+"/unfollow" method="post")
+                button(type="submit") Unfollow  
+        //-iterates through collection of artist and displays their artworks alongside links which go back to the artwork
+        each art in collection 
+            div 
+                a(href="/art/"+art._id) #{h5=art.name}
+                br
+                img(src=art.image style='width:100px; height:100px')
+        //-checks if workshops exist for the artist, iterates through them and are linked to allow the user to enroll in them
+        if workshop 
+        
+            h2 Workshops
+            each  workshop2 in workshop 
+                a(href="/"+workshop2.name +"/enroll") #{workshop2.name}

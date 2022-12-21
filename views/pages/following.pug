@@ -1,0 +1,13 @@
+//-displays what artists user is following
+html
+	head
+		title Following
+	body 
+
+		include ../partials/headers.pug
+		h2 Here are the artists you follow:
+		
+		each follow in searchFollow 
+			if follow.check 
+				br
+				a(href="/"+follow.artist) #{h1=follow.artist}
