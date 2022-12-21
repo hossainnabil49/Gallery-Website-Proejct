@@ -1,1 +1,1 @@
-# Gallery-Website-Proejct
+# Gallery-Website-Project
